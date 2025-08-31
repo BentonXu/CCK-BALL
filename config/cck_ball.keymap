@@ -50,16 +50,102 @@
     behaviors {
     };
 
+    macros {
+        M1: M1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(P) &kp LS(L) &kp RET>;
+            label = "M1";
+        };
+
+        M2: M2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp O &kp RET>;
+            label = "M2";
+        };
+
+        M3: M3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp RET>;
+            label = "M3";
+        };
+
+        M4: M4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp A &kp RET>;
+            label = "M4";
+        };
+
+        M5: M5 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp R &kp O &kp RET>;
+            label = "M5";
+        };
+
+        M6: M6 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(A) &kp LS(L) &kp RET>;
+            label = "M6";
+        };
+
+        M7: M7 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(R) &kp LS(E) &kp LS(V) &kp LS(C) &kp LS(L) &kp LS(O) &kp LS(U) &kp LS(D) &kp RET>;
+            label = "M7";
+        };
+
+        M8: M8 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp D &kp I &kp RET>;
+            label = "M8";
+        };
+
+        M9: M9 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp RET>;
+            label = "M9";
+        };
+
+        M10: mi {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp I &kp RET>;
+            label = "MI";
+        };
+
+        M11: M11 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp R &kp E &kp F &kp E &kp D &kp I &kp T &kp RET>;
+            label = "M11";
+        };
+
+        M12: M12 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp R &kp E &kp F &kp C &kp L &kp O &kp S &kp E &kp RET>;
+            label = "M12";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         QWERTY {
             bindings = <
-&kp ESC           &kp N1        &kp N2        &kp N3      &kp N4     &kp N5  &kp N6  &kp N7     &kp N8     &kp N9          &kp N0          &kp BACKSPACE
-&kp TAB           &kp Q         &kp W         &kp E       &kp R      &kp T   &kp Y   &kp U      &kp I      &kp O           &kp P           &kp BSLH
-&kp CAPSLOCK      &kp A         &lt 4 S       &kp D       &lt 3 F    &kp G   &kp H   &kp J      &kp K      &kp L           &kp SEMI        &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X         &kp C       &kp V      &kp B   &kp N   &kp M      &kp COMMA  &kp DOT         &kp UP_ARROW    &kp FSLH
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp DELETE  &kp SPACE  &mo 1   &mo 2   &kp SPACE  &kp ENTER  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp GRAVE         &kp N1        &kp N2        &kp N3       &kp N4       &kp N5  &kp N6  &kp N7     &kp N8     &kp N9         &kp N0              &kp BACKSPACE
+&kp ESC           &kp Q         &kp W         &kp E        &kp R        &kp T   &kp Y   &kp U      &kp I      &kp O          &kp P               &kp BSLH
+&kp CAPSLOCK      &kp A         &kp S         &kp D        &kp F        &kp G   &kp H   &kp J      &kp K      &kp L          &kp SEMI            &kp SQT
+&kp LEFT_SHIFT    &kp Z         &kp X         &kp C        &kp V        &kp B   &kp N   &kp M      &kp COMMA  &kp DOT        &mt UP_ARROW SLASH  &kp RSHFT
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &lt 5 SPACE  &tog 4  &mo 2   &kp SPACE  &kp RALT   &mt RALT LEFT  &mt K_MENU DOWN     &mt RCTRL RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -67,11 +153,11 @@
 
         F_layers {
             bindings = <
-&kp F12    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     &kp F7     &kp F8  &kp F9  &kp F10  &kp F11
-&kp A      &none   &none   &none   &none   &trans  &none      &none      &none   &trans  &trans   &trans
-&kp ENTER  &none   &none   &none   &none   &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans   &trans
-&kp EQUAL  &trans  &trans  &trans  &trans  &none   &none      &none      &trans  &trans  &none    &trans
-&trans     &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans   &trans
+&kp F12    &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6  &kp F7       &kp F8          &kp F9          &kp F10           &kp F11
+&kp TAB    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &kp PAGE_UP  &kp UP_ARROW    &kp PAGE_DOWN   &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&kp ENTER  &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans  &kp LEFT     &kp DOWN_ARROW  &kp DOWN_ARROW  &kp INS           &kp DEL
+&kp EQUAL  &kp PLUS      &kp MINUS     &kp ASTERISK  &kp SLASH     &kp PERIOD    &trans  &kp C_PAUSE  &kp HOME        &kp END         &kp PRINTSCREEN   &kp SCROLLLOCK
+&trans     &trans        &trans        &trans        &trans        &trans        &trans  &trans       &trans          &trans          &trans            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -79,11 +165,11 @@
 
         BT_layers {
             bindings = <
-&trans  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans      &trans  &trans  &trans  &trans  &kp W
-&trans  &trans          &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_CLR_ALL  &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &bt BT_CLR    &trans        &trans        &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &bt BT_CLR_ALL  &bt BT_CLR    &bt BT_NXT    &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans        &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -103,16 +189,16 @@
 
         mouse-layers {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LALT   &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LCTRL  &mkp MCLK  &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,
+                // 编码器1：上下滚动,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -120,11 +206,11 @@
 
         macro_layers {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB    &M1     &M2     &M3     &M4     &M5     &trans  &trans  &trans  &trans  &trans  &trans
+&kp ENTER  &M6     &M7     &M8     &M9     &M10    &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &M11    &M12    &kp F3  &kp F8  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
